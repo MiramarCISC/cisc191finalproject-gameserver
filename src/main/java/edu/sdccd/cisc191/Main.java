@@ -96,7 +96,7 @@ public class Main extends Application{
        Highscore.setOnAction(e->{
            try {
                List<Integer> scores = userService.getAllScores(); // You add this method
-
+                //streams for mod 6
                int highScore = scores.stream()
                        .max(Integer::compareTo)
                        .orElse(0);
@@ -255,7 +255,7 @@ public class Main extends Application{
                 Group countdownR = new Group(countLabel);
                 Scene countdownScene = new Scene(countdownR,700,700);
                 stage.setScene(countdownScene);
-
+                //recursion
                 countdown(3, countLabel, stage);
 
                 Scene CountdownScene = new Scene(root,700,700);
@@ -277,6 +277,7 @@ public class Main extends Application{
         stage.show();
         return scene;
     }
+    //recursion
     public void countdown(int n, Label label,Stage stage){
         if(n==0){
             stage.setScene(new GameScene(userService).createGame(stage));

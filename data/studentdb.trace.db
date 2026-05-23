@@ -549,3 +549,6 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/mcali/O
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 23 more
+2026-05-23 13:36:21.994861-07:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "SCORES" not found; SQL statement:
+SELECT score FROM scores [42102-224]

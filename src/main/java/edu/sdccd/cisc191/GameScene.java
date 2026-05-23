@@ -86,7 +86,7 @@ public class GameScene {
 
                 if (circle.getLayoutY() <= 20) {
                     direction[0] = -direction[0];
-                    ballSpeed[0]+=2;
+                    ballSpeed[0]+=0.2;
                     if (ballSpeed[0] > 10) {
                         ballSpeed[0] = 10;
                     }
@@ -116,7 +116,7 @@ public class GameScene {
                     cScore++;
 
                     Score.setText("Score: " + cScore);
-
+                //  comperator work for module 3
                     PlayerStats.scoreHistory.add(PlayerStats.cScore);
                     int highScore = PlayerStats.scoreHistory.stream()
                             .max(Integer::compareTo)

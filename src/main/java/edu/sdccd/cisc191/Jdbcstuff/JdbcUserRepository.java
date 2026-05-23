@@ -9,9 +9,24 @@ import java.util.List;
 
 public class JdbcUserRepository  implements UserRepository {
     private final Connection conn;
-public JdbcUserRepository(Connection conn){this.conn = conn;}
 
-    public List<Integer> getAllScores() throws SQLException, SQLException {
+    public JdbcUserRepository(Connection conn) throws SQLException {
+        this.conn = conn;
+
+
+    String createScoresTable = """
+            CREATE TABLE IF NOT EXISTS scores (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                score INT NOT NULL
+            );
+        """;
+
+    PreparedStatement stmt = conn.prepareStatement(createScoresTable);
+        stmt.executeUpdate();
+}
+        @Override
+    public List<Integer> getAllScores() throws SQLException {
+
         List<Integer> scores = new ArrayList<>();
 
         String sql = "SELECT score FROM scores"; // or whatever your table is called
@@ -23,6 +38,15 @@ public JdbcUserRepository(Connection conn){this.conn = conn;}
         }
 
         return scores;
+    }
+
+
+    @Override
+    public void saveScore(int score) throws SQLException {
+        String sql = "INSERT INTO scores (score) VALUES (?)";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, score);
+        stmt.executeUpdate();
     }
 
     @Override
