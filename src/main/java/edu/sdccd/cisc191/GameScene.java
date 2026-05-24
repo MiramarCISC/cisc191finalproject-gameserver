@@ -25,7 +25,7 @@ public class GameScene {
     private Circle circle;
 
     private double paddleSpeed;
-    private double[] ballSpeed = {3};
+    private double[] ballSpeed = {5};
     private double[] direction = new double[1];
 
     public Scene createGame(Stage stage) {
@@ -104,7 +104,7 @@ public class GameScene {
                     PlayerStats.scoreHistory.add(cScore);
                     PlayerStats.cScore = 0;
                     Score.setText("Score: 0");
-
+                    ballSpeed[0] = 5;
                 }
 
                 //collsion

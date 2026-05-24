@@ -279,7 +279,7 @@ public class Main extends Application{
     }
     //recursion
     public void countdown(int n, Label label,Stage stage){
-        if(n==0){
+        if (n==0) {
             stage.setScene(new GameScene(userService).createGame(stage));
             return;
         }
